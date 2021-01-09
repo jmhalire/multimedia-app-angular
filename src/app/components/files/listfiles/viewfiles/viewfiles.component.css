@@ -1,0 +1,85 @@
+.card-body{
+    padding: 10px 10px 10px 10px;
+}
+.description{
+    overflow-y: auto;
+    padding: 10px 5% 5px 5%;
+    background-color: #eff5f5;
+    color: black;
+    margin-left: -2.4%;
+    width: 100.5%;
+    margin-top: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.btn-close{
+    width: 50px;
+    border-radius: 5px;
+    padding: 0px 0px 1px 0px;
+    height: 32px;
+    margin-left: auto;
+}
+
+@media screen and (min-width: 450px)  and (max-width: 770px){
+    
+}
+
+@media screen and (max-width: 770px) {
+    
+    
+    .card-body{
+        padding: 5px 4px 0px 3px;
+    }
+    .card-header{
+        padding: 0px 6px 0px 6px;
+    }
+    .table{
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+    .description{
+        padding-top: 5px;
+        height: 150px;
+    }
+    .header-row{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .btn-close{
+        padding: 0px 0px 1px 0px;
+        margin-top: 3px;
+    }
+    .description{
+        margin-left: -1.3%;
+        width: 100.2%;
+        margin-top: -3px;
+    }
+
+}
+@media screen and (max-width: 450px) {
+    .card{
+        margin-left: 2%;
+        margin-right: 2%;
+        max-width: 95%;
+        bottom: 0;
+    }
+
+    .card-body{
+        padding: 6px 7px 6px 7px;
+    }
+    .description{
+        margin-left: -2.2%;
+        width: 100.5%;
+    }
+}
+
+@media screen and (min-width: 770px) and (max-width: 920px) {
+
+}
+@media screen and (min-width: 770px) and (max-width: 1080px) {
+
+}
+@media screen and (min-width: 920px) and (max-width: 1080px) {
+
+}

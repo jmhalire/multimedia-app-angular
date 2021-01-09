@@ -1,0 +1,127 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* On mouse-over */
+
+
+/* Main content */
+
+.nro {
+    background-color: #2929291f;
+    text-align: center;
+}
+
+.more {
+    /*position: absolute; min-width: fit-content; width: 85px;*/
+    position: absolute;
+    min-width: fit-content;
+    width: 95px;
+}
+
+#edit:hover {
+    background-color: blue;
+    color: white;
+}
+
+#delete:hover {
+    background-color: red;
+    color: white;
+}
+
+.container {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.main {
+    padding: 15px 0% 15px 0%;
+    flex-wrap: initial;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+.PhotoPerfil:hover {
+    transition: all 100ms ease-in-out;
+    transform: scale3d(1.4, 1.4, 1.4);
+}
+
+.asideleft {
+    width: 13%;
+    position: fixed;
+    background-color: #0000006c;
+    height: 100%;
+    padding: 85px 1.5% 0px 1.5%;
+    color: #b1b1b1;
+}
+
+.asideright {
+    width: 10%;
+    position: fixed;
+    margin-left: 90%;
+    background-color: #000000d5;
+    height: 100%;
+    color: #b1b1b1;
+    padding: 85px 1.5% 0px 1.5%;
+}
+
+.firs-main {
+    width: 100%;
+    margin-left: 13%;
+    margin-right: 10%;
+    margin-top: 20px;
+}
+
+
+/*================  footer  ===============*/
+
+
+/* Some media queries for responsiveness */
+
+@media (max-width: 1200px) {
+    .asideright {
+        display: none;
+    }
+    .firs-main {
+        margin-right: 0px;
+    }
+    .container {
+        max-width: 1100px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .asideleft {
+        display: none;
+    }
+    .firs-main {
+        margin-left: 0px;
+    }
+    .container {
+        max-width: 950px;
+    }
+}
+
+@media (max-width: 770px) {
+    .container {
+        max-width: 740px;
+    }
+    .nro {
+        width: 30px;
+    }
+    .more {
+        width: 80px;
+    }
+    .opt-more {
+        padding: 1px 7px 1px 7px;
+    }
+    .main {
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 450px) {}

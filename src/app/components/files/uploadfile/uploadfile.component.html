@@ -1,0 +1,58 @@
+<!-- Form -->
+<div style="text-align:-webkit-center" class="my-5">
+    <div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">{{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form id="formularioSubir" (submit)="upload()" @upload>
+        <h4 class="TituloSubir">UPLOAD A ARCHIVE</h4>
+        <div class="row">
+            <!-- Material form contact -->
+            <div class="col-sm fileupload">
+                <div class="card-header info-color text-white bg-dark">
+                    <h5>Archive</h5>
+                </div>
+                <div class="form-group files">
+                    <input #file type="file" name="archivo" (change)="fileupload($event)" class="form-control" multiple="" autofocus="true" required id="cajadesubida">
+                </div>
+                <!-- Send button -->
+            </div>
+            <div class="col-sm infoupload">
+                <!-- Material form contact -->
+                <div class="card-header info-color text-white bg-dark datfile">
+                    <h5>information</h5>
+                </div>
+                <!--Card content-->
+                <div class="card-body datfile" style="background-color:white;">
+                    <div class="form-group">
+                        <label for="documento" style="display: flex;">Name</label>
+                        <input type="text" #filename name="nombre" class="form-control inputdate" readonly="true" required>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm">
+                            <label style="display: flex;">Type</label>
+                            <input type="text" #filetype name="tipo" class="form-control inputdate" readonly="true" required>
+                        </div>
+                        <div class="form-group col-sm">
+                            <label style="display: flex;">Size</label>
+                            <input type="text" #filesize name="size" class="form-control inputdate" readonly="true" required>
+                        </div>
+                    </div>
+                    <!-- Documento -->
+                </div>
+            </div>
+        </div>
+        <div class="progress" *ngIf="progress > 0" style="height: 21px;">
+            <div class="progress-bar progress-bar-striped" role="progressbar" [style.width.%]="progress" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                <h6 class="mt-2">{{porcentaje}}</h6>
+            </div>
+        </div>
+        <div class="row btnupload">
+            <button class="btn btn-primary uploadbtn" style="width: 150px;" id="enviar" type="submit">
+                <h4>Upload</h4>
+            </button>
+        </div>
+    </form>
+
+</div>

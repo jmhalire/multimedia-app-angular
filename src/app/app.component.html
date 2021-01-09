@@ -1,0 +1,33 @@
+<app-header (emitEvent)="eventSidenav($event)"></app-header>
+<div class="sidenavShow" *ngIf='sidenavShow' @body (click)="sidenavHidden()">
+</div>
+<div class="row main">
+    <div class="asideleft" #asideleft>
+        <div style="text-align: center;">
+            <img class="rounded-circle" src="assets/image/signin.gif" width="120" height="110" alt="" srcset="">
+        </div>
+
+        <P class="mt-4">Author:</P>
+        <p class="my-3">Halire Huaman JAIME ANDREE</p>
+
+        <p class="my-5" style="text-align: justify;">
+            Student of the faculty of computer engineering and systems of the national university san antonio abad del
+            cusco
+        </p>
+        <p class="text-center mt-5">141670</p>
+    </div>
+    <div class="firs-main">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="asideright" #asideright>
+        <app-clock></app-clock>
+        <br>
+        <p>FOLLOW US ON</p>
+        <a href="http://www.facebook.com" target="blank"><i class="fab fa-facebook-square" style="font-size: 60px;"></i>
+        </a><br><br>
+        <a href="http://www.instagram.com" target="blank"><i class="fab fa-instagram" style="font-size: 60px;"></i>
+        </a><br><br>
+        <a href="http://gmail.com" target="blank"><i class="fas fa-envelope" style="font-size: 60px;"></i>
+        </a><br><br>
+    </div>
+</div>

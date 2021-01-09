@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 mb-2">
+            <div class="bucket" @weatherInput>
+                <div class="infoApi">
+                    Para poder obtener los datos del clima, ingrese el nombre de una ciudad.
+                </div>
+                <div class="card">
+                    <form (submit)="weather(namecity)">
+                        <div class="card-header text-white">
+                            <button type="button" class="close" routerLink='/'>
+                                <span aria-hidden="true">&times;</span>
+                            </button> Search city
+                        </div>
+                        <div class="card-body">
+                            <div style="text-align: center;">
+                                <img class="img-fluid" src="assets/image/clima.jpg" alt="" srcset="">
+                            </div>
+                            <br>
+                            <hr>
+                            <input class="form-control" type="text" name="" id="" autofocus placeholder="name" #namecity>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-outline-light btn-block">search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-2" *ngFor="let city of cityes">
+            <app-weather [city]="city" (date)="removedate($event)"></app-weather>
+        </div>
+    </div>
+</div>

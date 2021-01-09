@@ -1,0 +1,137 @@
+<div class="mt-4">
+    <div @table>
+        <h4 class="TituloVideos">LIST OF ALL {{title}}</h4>
+        <div class="row">
+            <div class="col-sm view-video">
+                <div class="row bg-dark text-white head-viedeo">
+                    <div style="width: 20%; padding-left: 2%;">#</div>
+                    <div style="width: 60%;">name</div>
+                    <div style="width: 20%; padding-left: 2%;">option</div>
+                </div>
+                <div class="vie-table mx-auto">
+                    <div *ngIf="loadingList">
+                        <div class="circle-border">
+                            <div class="circle-core" style="background-color: #3f474e;"></div>
+                        </div>
+                        <br>
+                        <h4 style="color: white;text-align: center;">
+                            Loading...
+                        </h4>
+                    </div>
+
+                    <div *ngIf="NotFile">
+                        <div class="container NotFile">
+                            <h3>Files not exist</h3>
+                            <h5>puede subir un archivo en este momento</h5>
+                            <button type="submit" class="btn btn-dark" routerLink='/files/upload'>¡Upload File!</button>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                            <tr #row *ngFor='let file of  datefile; index as i' class="rowtable" (click)="rowselect(row)">
+                                <th scope="row" class="nro">{{i+1}}</th>
+                                <td>{{ file.name }}</td>
+                                <td class="options" (mouseleave)="moreOptionsLeave(options)">
+                                    <button class="btn btn-primary" style="float: left;" (click)="viewfile(file)">
+                                        <i class="fas mr-1" [ngClass]="classe"></i>
+                                        <label class="visualizar">{{ visualizar }}</label>
+                                    </button>
+                                    <button (click)="moreOptionsOver(options)" class="btn btn-success morebtn" aria-haspopup="true" data-toggle="dropdown" style="float: right;">
+                                        <i class="fas fa-door-open mr-1"></i>
+                                        <label class="visualizar">More</label>
+                                    </button>
+                                    <div class="moreoptions" style="display: none;cursor: pointer;" #options (mouseleave)="moreOptionsLeave(options)">
+                                        <a class="dropdown-item fas fa-edit" id="edit" data-toggle="modal" data-target="#staticBackdrop" (click)="EditOrDelete(file)"> Edit</a>
+                                        <a class="dropdown-item fas fa-trash" id="delete" data-toggle="modal" data-target="#staticBackdrop1" (click)="EditOrDelete(file)"> Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+                <div class="text-white ml-1 mt-1">
+                    Total: <label class="len">{{length}}</label>
+                </div>
+            </div>
+            <!-- parte de codigo para visualizar video -->
+            <div class="col-sm-5" *ngIf="loading">
+                <div class="circle-border">
+                    <div class="circle-core"></div>
+                </div>
+                <br>
+                <h4 style="color: white;text-align: center;">
+                    Loading...
+                </h4>
+            </div>
+
+            <div class="view-video col-sm-5" @InsertRemove *ngIf="view">
+                <app-viewfiles [onefile]="onefile" [src]='path' (close)="closeViewfile()"></app-viewfiles>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <!-- edit of files  -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Edit file</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body text-left">
+                    <div class="form-inline">
+                        <label class="col-4 d-block">Name: </label>
+                        <input class="col-8 form-control" type="text" name="" id="" value="" #nameEdit>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label class="col-4 d-block">Type: </label>
+                        <input class="col-8 form-control" type="text" readonly='true' name="" id="" value="" #typeEdit>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label class="col-4 d-block">Upload date: </label>
+                        <input class="col-8 form-control" type="text" readonly='true' name="" id="" value="" #uploadEdit>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label class="col-4 d-block">update date: </label>
+                        <input class="col-8 form-control" type="text" readonly='true' name="" id="" value="" #updateEdit>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label class="col-4 d-block">Size: </label>
+                        <input class="col-8 form-control" type="text" readonly='true' name="" id="" value="" #sizeEdit>
+                    </div>
+                </div>
+                <div class="modal-footer mx-auto">
+                    <button type="submit" class="btn btn-dark" data-dismiss="modal" aria-label="Close" style="width: 150px;" (click)="updatefile()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  delete file -->
+    <div class="modal fade" id="staticBackdrop1" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Delete file</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body text-left">
+                    <label>¿Esta seguro que desea eliminar el archivo: {{ namefile }} ?</label>
+                </div>
+                <div class="modal-footer mx-auto">
+                    <button class="btn btn-dark" data-dismiss="modal" aria-label="Close" style="width: 150px;" (click)="delete()">
+            Aceptar
+          </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

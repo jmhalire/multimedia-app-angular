@@ -1,0 +1,201 @@
+.container {
+    background-color: #0f81ebe1;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.rowtable {
+    color: white;
+    background-color: #8b4513;
+}
+
+.rowtable:hover {
+    background-color: #008cff;
+    color: white;
+    font-size: 16px;
+}
+
+.visualizar {
+    cursor: pointer;
+}
+
+.circle-border {
+    width: 150px;
+    height: 150px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    animation: spin 1.5s linear 0s infinite;
+    background: linear-gradient(0deg, #06473e 40%, #00ffea 60%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+.circle-core {
+    width: 97%;
+    height: 97%;
+    border-radius: 50%;
+    background: black;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+.NotFile {
+    width: 60%;
+    margin-top: 7vw;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    box-shadow: 0 10px 15px 0 #0000002d, 0 5px 10px 0 #00000049;
+}
+
+.NotFile:hover {
+    box-shadow: 0 15px 25px 0 #0000003d, 0 10px 15px 0 #00000067;
+    transform: translateY(-3px);
+    background-color: #0484fc;
+}
+
+.alert {
+    position: relative;
+}
+
+.len {
+    background-color: #eeeeee;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 50%;
+    color: black;
+}
+
+.TituloVideos {
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 8px;
+    color: white;
+    position: relative;
+}
+
+.options {
+    background-color: #29292931;
+    width: 250px;
+}
+
+.head-viedeo {
+    height: 50px;
+    padding-top: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.vie-table {
+    position: relative;
+    height: 330px;
+    width: 99%;
+    overflow: auto;
+    padding-right: 2px;
+    padding-left: 0px;
+    background-color: #3f474e!important;
+}
+
+.view-video {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.moreoptions {
+    position: absolute;
+    min-width: 5rem;
+    margin: 30px 130px 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: .25rem;
+}
+
+.modal-dialog {
+    margin-top: 75px;
+}
+
+.modal-content {
+    border: 5px solid #0000003f;
+}
+
+@media screen and (max-width: 1080px) {
+    .options {
+        width: 238px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .options {
+        width: 115px;
+    }
+    .table {
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+    .btn,
+    .morebtn {
+        padding: 6px 7px 6px 7px;
+    }
+    .header-row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .vie-table {
+        height: 200px;
+        margin-bottom: 10px;
+    }
+    .visualizar {
+        display: none;
+    }
+    .moreoptions {
+        margin: 30px 7px 0;
+        width: 75px;
+    }
+    .moreoptions a {
+        padding: .25rem 0.5rem;
+    }
+    .head-viedeo {
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .options {
+        width: 100px;
+    }
+    .btn,
+    .morebtn {
+        padding: 3px 5px 3px 5px;
+    }
+    .moreoptions {
+        margin: 30px 7px 0;
+        width: 75px;
+    }
+    .moreoptions a {
+        padding: .25rem 0.2rem;
+    }
+    .head-viedeo {
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+}
+
+@media screen and (min-width: 920px) and (max-width: 1080px) {}

@@ -1,0 +1,44 @@
+.conten {
+    color: #f0f5ff;
+    background-color: #0d80ecce;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 2% 2% 2% 2%;
+    width: 85%;
+    border-radius: 5px;
+    border-spacing: 10px;
+    border-left: black;
+    position: relative;
+}
+
+.concep {
+    background-color: #181818e8;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.welcome {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 90px;
+}
+
+@media screen and (max-width:770px) {
+    .conten {
+        width: 90%;
+        margin-top: 20px;
+    }
+    .logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .row img {
+        width: 60%;
+    }
+}
+
+@media(max-width: 600px) {
+    .welcome {
+        font-size: 70px;
+    }
+}

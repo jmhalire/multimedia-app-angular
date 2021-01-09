@@ -1,0 +1,45 @@
+
+.submain{
+    background-image: -webkit-gradient(linear, left bottom,left top, from(#343a41c5), color-stop(50%, #272c31), to(#1c2124));
+    border-radius: 8px;
+    min-width: 300px;
+    position: relative;
+}
+.login{
+    width: 375px;
+    height: min-content;
+}
+
+.rightLogin{
+    display: contents;
+}
+.rowsignin{
+    flex-wrap: initial;
+}
+.container{
+    width: 85%;
+    margin-top: 5%;
+}
+@media screen and (max-width: 450px) {
+    .rowsignin{
+        flex-flow:column-reverse;
+    }
+    .leftcard{
+        display: contents;
+    }
+    .login{
+        width: 315px;
+    }
+}
+@media screen and (max-width: 750px){
+    .container{
+        width: 95%;
+        margin-top: 20px;
+    }
+
+}
+@media screen and (max-width: 1200px) {
+    .rightLogin{
+        display: none;
+    }
+}

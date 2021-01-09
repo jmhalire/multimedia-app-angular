@@ -1,0 +1,32 @@
+.container{
+    text-align: center;
+    color: white;
+    background-color: #0084ff60;
+    border-radius: 5px;
+}
+.temp{
+    font-size: 4.5rem;
+}
+.container:hover{
+    border-color: blue;
+    background-color: #0052bd79;
+}
+.dateExtra{
+    text-align: left;
+    background-color: #000000a1;
+    display: flex;
+}
+@media screen and (max-width: 750px){
+    .dateweather{
+        text-align: center;
+    }
+    .dateExtra{
+        font-size: 14px;
+    }
+    .temp{
+        font-size: 3rem;
+    }
+    .namecity{
+        font-size: 2rem;
+    }
+}

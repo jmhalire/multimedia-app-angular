@@ -1,0 +1,75 @@
+<div class="container submainregister py-3">
+    <div class="row rowsignup px-3">
+        <div class="col-sm text-white">
+            <div>
+                <div style="text-align: center;">
+                    <img @logo class="PhotoPerfil" width="200" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgID
+                    xwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8
+                    cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsb
+                    D0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNG
+                    wxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+                </div>
+                <br>
+                <label for="">Ahora.</label>
+                <p>
+
+                    Before creating an account we tell you some considerations. <br><br> To register you fill out your
+                    ID, and your data will be automatically displayed, without the need to fill it out yourself, in
+                    addition to that you must have a key, this
+                    it will be provided to you when you write to us with the subject 'key'
+                    <a href="http://www.gmail.com"> Here </a>
+                    and we will provide you with a password.<br><br>
+                    And finally you will be able to have your user account to have access to the application when you
+                    like, also it will have at your disposal those with more APIs,
+                    like: youtube, weather, pokemon, etc.
+                </p>
+            </div>
+        </div>
+        <div class="card logup" @signup>
+            <div class="card-header bg-dark text-white">
+                <h2><i class="fas fa-user mr-1"></i> Account register</h2>
+            </div>
+            <div *ngIf="message" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">{{message}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="card-body">
+                <form [formGroup]='signupForm' (ngSubmit)="signup()">
+                    <div class="form-group">
+                        <h5 id="textsig"> Names</h5>
+                        <!--<input type="text" class="form-control" name="nombres" id="nombre" readonly="true" required>-->
+                        <input type="text" formControlName='names' class="form-control" #names autofocus>
+                    </div>
+                    <div class="form-group">
+                        <h5 id="textsig"> Surnames</h5>
+                        <input type="text" formControlName='surnames' class="form-control" #surnames>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <h5 id="textsig"> E-mail</h5>
+                        <input type="email" formControlName='email' class="form-control" #email>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md">
+                            <h5 id="textsig">password</h5>
+                            <input type="password" formControlName='password' class="form-control mb-2" #password>
+                        </div>
+                        <div class="col-md">
+                            <h5 id="textsig">confirm password</h5>
+                            <input type="password" formControlName='confirmpassword' class="form-control mb-2"
+                                #confirmpassword>
+                        </div>
+                    </div>
+                    <button type="submit" [disabled]='signupForm.invalid' class="btn btn-dark btn-block">Sign
+                        Up</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-sm-2 rightLogin">
+
+        </div>
+    </div>
+
+</div>

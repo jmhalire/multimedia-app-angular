@@ -1,0 +1,104 @@
+<nav class="navbar navbar-dark fixed-top px-1">
+    <ul class="navbar-nav" *ngIf="authService.loggedIn()">
+        <li class="nav-item">
+            <a id="mult" class="navbar-brand" routerLink='/files'>MULTIMEDIA</a>
+            <button class="openbtn" type="button" (click)="openSidenav()">
+                <span class="navbar-toggler-icon" style="width: 55px;"></span>
+            </button>
+        </li>
+
+        <li class="nav-item dropdown">
+            <div class="sidenav" #sidenav [@openClose]="isOpen ? 'open' : 'closed'">
+                <a routerLink='files/upload'>
+                    <i class="fas fa-upload mr-2"></i> Upload archive
+                </a>
+                <a routerLink='files/video'>
+                    <i class="fas fa-video mr-3"></i>
+                    <label>video</label>
+                </a>
+                <a routerLink='files/image'>
+                    <i class="fas fa-image mr-3"></i>Image
+                </a>
+                <a routerLink='files/audio'>
+                    <i class="fas fa-music mr-3"></i>Audio
+                </a>
+                <button class="dropdown-btn my-2" id="doc" (click)="open2='active'; display2=!display2" [ngClass]="open">
+                    <i class="fas fa-plus-circle mr-3"></i>
+                    Plus
+                    <i class="fa fa-caret-down mt-1"></i>
+                </button>
+                <div class="dropdown-container d-none" [ngClass]="{'d-block': display2}">
+                    <a routerLink='files/pdf'>
+                        <i class="fas fa-file mr-3"></i> PDF
+                    </a>
+                    <a routerLink='files/other'>
+                        <i class="fas fa-archive mr-3"></i> Others
+                    </a>
+                </div>
+                <a href="#"><i class="fas fa-info mr-3"></i>Help</a>
+            </div>
+
+        </li>
+    </ul>
+    <ul class="navbar-nav" *ngIf="!authService.loggedIn()">
+        <li class="nav-item">
+            <a routerLink='/' class="nav-link">
+                <h4 class="hometext"><i class="fas fa-home"></i> Home</h4>
+            </a>
+        </li>
+    </ul>
+    <ul class="navbar-nav mx-auto">
+        <li>
+            <nav class="subnavbar">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="width: 65px;"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item mr-1 ml-1" routerLinkActive="active">
+                            <a class="nav-link" routerLink='/api/weather'>Weather API <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item mr-1 ml-2" routerLinkActive="active">
+                            <a class="nav-link" routerLink='https://jmhalire.herokuapp.com/'>Drive</a>
+                        </li>
+                        <li class="nav-item mr-1 ml-2" routerLinkActive="active">
+                            <a class="nav-link" routerLink='/www.facebook.com'>OMDb API</a>
+                        </li>
+                        <li class="nav-item" routerLinkActive="active">
+                            <a class="nav-link" routerLink='/'>Swiper CDN</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </li>
+    </ul>
+    <ul class="navbar-nav" style="flex-direction: row;">
+        <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+            <li class="nav-item mr-2" routerLinkActive="active">
+                <a routerLink='/signin' class="nav-link">
+                    <h5 class="signintext"><i class="far fa-user"></i> signin</h5>
+                </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a routerLink='/signup' class="nav-link">
+                    <h5 class="signuptext"><i class="far fa-user"></i> signup</h5>
+                </a>
+            </li>
+        </ng-container>
+        <ng-template #loggedIn>
+            <li class="nav-item mr-1" style="cursor: pointer;" routerLink='user/profile'>
+                <h5 id="nameuser"><i class="far fa-user-circle"></i> {{ authService.getUser() }}</h5>
+            </li>
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Option
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="position: absolute; min-width: fit-content; width: 50px; cursor: pointer;">
+                    <a routerLink='user/profile' class="dropdown-item optheader">Profile</a>
+                    <a routerLink='/' class="dropdown-item optheader" (click)="authService.logout()">logout</a>
+                </div>
+            </li>
+        </ng-template>
+
+    </ul>
+</nav>

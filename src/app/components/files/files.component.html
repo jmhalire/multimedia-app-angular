@@ -1,0 +1,98 @@
+<div class="container">
+    <!-- <app-uploadfile *ngIf="upload"></app-uploadfile>
+    <app-listfiles *ngIf="fileData" [filedate]="fileData"></app-listfiles> -->
+
+    <router-outlet></router-outlet>
+    <br>
+    <h2 class="titlefile" @title>Manejo de archivos multimedia</h2>
+    <div class="row index">
+        <div class="col-sm-6 pb-4">
+            <div class="card file" @left>
+                <div class="card-header bg-dark">
+                    <h5 class="card-title text-white">VIDEOS</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text d-inline-block">tus videos se muestran en una tabla, en la cual le das play a cualquiera para disfrutarlo, full HD.
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent border-success">
+                    <video src="assets/video/bodanaruto.mp4" controls style="width: 100%;"></video>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 pb-4">
+            <div class="card file" @right>
+                <div class="card-header bg-dark">
+                    <h5 class="card-title text-white">AUDIOS</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text d-inline-block">todas tus musicas en una lista ademas de una lista de solo tus musicas favoritas que tu mismo eliges como favorito.
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent border-success">
+                    <audio src="assets/audio/With_You.mp3" controls style="width: -webkit-fill-available;"></audio>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row index">
+        <div class="col-sm-6 pb-4">
+            <div class="card file" @left>
+                <div class="card-header bg-dark">
+                    <h5 class="card-title text-white">IMAGENES</h5>
+                </div>
+                <div class="card-body">
+
+                    <p class="card-text">todas tus imagenes que puedes verlos, mostrarlos y cuando quieras en alta resolucion.
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent border-success">
+                    <img src="assets/image/goku.jpg" style="width: 100%;" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 pb-4 ">
+            <div class="card file" @right>
+                <div class="card-header bg-dark">
+                    <h5 class="card-title text-white">PDF</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">todas tus archivos de pdf ademas de una visualizacion y descarga del archivo.
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent border-success">
+                    <iframe src="assets/pdf/angular.pdf" frameborder="0" style="width: 100%;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row index">
+        <div class="col-sm-6 pb-4">
+            <div class="card file" @left>
+                <div class="card-header bg-dark">
+                    <h5 class="card-title text-white">WORD</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">todas tus archivos de documento para descargar en cualquier momento.
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent border-success">
+                    <img src="assets/image/Captura.png" style="width: 100%;" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 pb-4">
+            <div class="card file" @right>
+                <div class="card-header bg-dark">
+                    <h5 class="card-title text-white">OTHERS</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Ademas puedes guardar archivos en otros formatos docx, exe, py, js, ts, etc.
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent border-success">
+                    <img src="assets/image/other.png" style="width: 100%;" alt="">
+                </div>
+            </div>
+        </div>
+    </div>

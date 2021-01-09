@@ -1,0 +1,63 @@
+<div class="container pb-2" @weatherDate role="presentation">
+    <button type="button" class="close" (click)="removeDate(city)">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h1 class="text-center namecity">{{city.name}}</h1>
+    <div class="d-flex" style="justify-content: center; align-items: baseline;">
+        <h1 class="mx-2 temp">{{city.main.temp }} </h1>
+        <h2> °C</h2>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-5">
+            <div>sensacion temica</div>
+            <div>{{city.main.feels_like}} °c</div>
+        </div>
+        <div class="col-1">
+            -
+        </div>
+        <div class="col-5">
+            <div>Descripcion</div>
+            <div>{{city.weather[0].description}}</div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-5">
+            <h6>Temperuatura Min: {{city.main.temp_min}} °c</h6>
+        </div>
+        <div class="col-1">
+            -
+        </div>
+        <div class="col-5">
+            <h6>Temperuatura Max: {{city.main.temp_max}} °c</h6>
+        </div>
+    </div>
+    <br>
+    <div class="row dateExtra">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-6">Humedad:</div>
+                <div class="col-6 dateweather">{{city.main.humidity}} %</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-6">Viento:</div>
+                <div class="col-6 dateweather">{{city.wind.speed}} m/s</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-6">longitud:</div>
+                <div class="col-6 dateweather">{{city.coord.lon}}</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-6">latitud:</div>
+                <div class="col-6 dateweather">{{city.coord.lat}}</div>
+            </div>
+        </div>
+    </div>
+</div>

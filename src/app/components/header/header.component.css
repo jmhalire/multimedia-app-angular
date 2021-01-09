@@ -1,0 +1,235 @@
+/* You can add global styles to this file, and also import other style files */
+
+.navbar {
+    background-color: #000000f8;
+    box-shadow: 0 0.5rem 1rem #3b3b3b6e
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.subnavbar {
+    background-color: #000000ef;
+    position: fixed;
+    top: 10px;
+    right: 40%;
+}
+
+.navbarNavDropdown {
+    color: white;
+}
+
+.subnavbar:hover,
+.openbtn:hover {
+    box-shadow: 0px 2px 1px 0px #adadad65, 0px 2px 1px 0px #91919127;
+}
+
+.navbar-collapse {
+    flex-basis: 0em;
+}
+
+body {
+    background-image: -webkit-gradient(linear, left bottom, right top, from(#415681), color-stop(50%, #37678f), to(#266e80));
+    min-width: 400px;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    margin-right: 35px;
+}
+
+.sidenav {
+    position: fixed;
+    left: 0;
+    width: 200px;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#343a412d), color-stop(30%, #343a41), to(#131618));
+    /*background-color: #343a40!important;*/
+    padding-top: 20px;
+    margin-top: 50px;
+    mix-blend-mode: hue;
+    contain: content;
+}
+
+
+/* Style the sidenav links and the dropdown button */
+
+.sidenav a,
+.dropdown-btn {
+    padding: 6px 8px 6px 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #00b7ff;
+    /*color:#ff6600;*/
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.sidenav a:hover,
+.dropdown-btn:hover {
+    background-color: #0084ff;
+    font-size: 20px;
+    color: black;
+}
+
+
+/* On mouse-over */
+
+
+/* Main content */
+
+#main {
+    margin: 60px 1% 0% 1%;
+    padding: 15px 5px 15px 5px;
+    display: grid;
+}
+
+
+/* Add anve class to the active dropdown button */
+
+.navbar-dark .navbar-nav .active>.nav-link {
+    color: #2c99ff;
+}
+
+.nav-link:hover {
+    color: lightsalmon;
+    border-radius: 2px;
+}
+
+.nav-item:hover,
+#mult:hover,
+.openbtn:hover {
+    border: 1px solid;
+    border-color: cyan;
+}
+
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+
+.dropdown-container a:hover {
+    background-color: #d7dee9;
+    color: black;
+    font-size: 20px;
+}
+
+.dropdown-container {
+    display: none;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#131618c7), color-stop(20%, #404850), to(#131618));
+    padding-left: 15px;
+    font-size: 12px;
+}
+
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+.openbtn {
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    color: rgba(255, 255, 255, .5);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+#mult:hover {
+    color: #0084ff;
+}
+
+#mult {
+    margin-right: 10px;
+}
+
+.hometext {
+    color: white;
+}
+
+#nameuser {
+    /* text-white my-2 mr-4 ml-2*/
+    color: white;
+    margin-top: 6%;
+}
+
+@media screen and (max-width: 990px) {
+    .sidenav {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .signintext,
+    .signuptext,
+    .hometext {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 18px;
+    }
+    .signuptext {
+        margin-left: 13px;
+    }
+    .navbar-toggler,
+    .openbtn,
+    #mult,
+    #navbarDropdownMenuLink {
+        padding: 0px;
+    }
+    .sidenav {
+        margin-top: 0px;
+        padding-top: 18px;
+        width: 175px;
+    }
+    .sidenav a:hover,
+    .dropdown-btn:hover {
+        background-color: #0084ff;
+        font-size: 18px;
+        color: black;
+    }
+    #infoLogin {
+        display: none;
+    }
+    .navbar-brand {
+        font-size: 18px;
+        margin-right: 12px;
+    }
+    .sidenav a,
+    .dropdown-btn {
+        font-size: 18px;
+    }
+    .dropdown-container {
+        font-size: 18px;
+    }
+    .subnavbar {
+        width: min-content;
+        top: 1px;
+        right: 50%;
+    }
+    .navbar {
+        padding: 0px;
+    }
+    .optheader {
+        padding-left: 10px;
+    }
+    #nameuser {
+        margin: 0%;
+    }
+    .navbar-toggler-icon {
+        height: 32px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #mult {
+        display: none;
+    }
+    .subnavbar {
+        right: 63%;
+    }
+}

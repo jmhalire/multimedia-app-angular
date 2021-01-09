@@ -1,0 +1,25 @@
+.container{
+    color: white;
+    position: relative;
+    justify-content: center;
+    text-align: -webkit-center;
+    margin-top: 4%;
+    padding-top: 2%;
+}
+.card{
+    background-color: #00305ef1;
+    width: 500px;
+}
+.form-control{
+    background-color: #0000004b;
+    color: #ff7b00;
+    height: 32px;
+    padding: 0px 0px 0px 10px;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 520px){   
+    .card{
+        width: 325px;
+    }
+}

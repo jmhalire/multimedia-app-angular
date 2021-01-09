@@ -1,0 +1,48 @@
+.submainregister {
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#343a41e0), color-stop(50%, #272c31), to(#1c2124));
+    border-radius: 8px;
+    min-width: 300px;
+}
+
+.logup {
+    max-width: 400px;
+    height: min-content;
+}
+
+.rightLogin {
+    display: contents;
+}
+
+.rowsignup {
+    flex-wrap: initial;
+}
+
+.container {
+    width: 90%;
+    margin-top: 5%;
+    position: relative;
+}
+
+@media screen and (max-width: 450px) {
+    .submainregister {
+        margin-top: 3%;
+    }
+    .rowsignup {
+        flex-flow: column-reverse;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 750px) {
+    .logup {
+        width: auto;
+    }
+    .submainregister {
+        margin-top: 3%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .rightLogin {
+        display: none;
+    }
+}

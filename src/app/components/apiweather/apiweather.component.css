@@ -1,0 +1,67 @@
+.container {
+    width: 80%;
+    margin-top: 6%;
+}
+
+.bucket {
+    text-align: -webkit-center;
+    display: inline-flex
+}
+
+.infoApi {
+    background-color: #001a4ebb;
+    padding: 10% 2% 0% 2%;
+    color: white;
+    text-align: left;
+    border-left-width: 10px;
+    border-left-style: solid;
+    border-left-color: #010027;
+    width: 40%;
+}
+
+.date {
+    color: steelblue;
+}
+
+.card-body {
+    background-color: #001a4e9d;
+}
+
+.card {
+    background-color: #0084ff60;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.bucket:hover {
+    box-shadow: 0 5px 10px 0 #4444443d, 0 5px 10px 0 #47474767;
+}
+
+.card-footer {
+    background-color: #000f2ea8;
+}
+
+.card-body img {
+    border-radius: 5px;
+    box-shadow: 0 10px 10px 0 #00000052, 0 0 15px 0 #00000048;
+}
+
+.card-body input {
+    background-color: #00000098;
+    color: white;
+}
+
+@media screen and (max-width: 750px) {
+    .container {
+        width: 100%;
+        margin-top: 5%;
+    }
+    .date,
+    .result {
+        max-width: 50%;
+    }
+    .date h5,
+    .result h5 {
+        font-size: 16px;
+    }
+}
