@@ -12,19 +12,19 @@ export class AuthService {
   }
 
   public signin(user:any){
-    return this.http.post<userlogin>('https://jmhalire-api.herokuapp.com/signin',user);
+    return this.http.post<userlogin>('https://api-multimedia-production-efad.up.railway.app/signin',user);
   }
 
   public signup(newuser:any){
-    return this.http.post<userlogin>('https://jmhalire-api.herokuapp.com/signup',newuser);
+    return this.http.post<userlogin>('https://api-multimedia-production-efad.up.railway.app/signup',newuser);
   }
 
   public dateUser(){
-    return this.http.get('https://jmhalire-api.herokuapp.com/user/date', this.httpOptions());
+    return this.http.get('https://api-multimedia-production-efad.up.railway.app/user/date', this.httpOptions());
   }
 
   public updateUser(dateUser:user){
-    return this.http.post<any>('https://jmhalire-api.herokuapp.com/user/update',dateUser, this.httpOptions());
+    return this.http.post<any>('https://api-multimedia-production-efad.up.railway.app/user/update',dateUser, this.httpOptions());
   }
 
   public loggedIn(){
