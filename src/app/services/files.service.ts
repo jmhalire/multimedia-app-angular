@@ -36,7 +36,7 @@ export class FilesService {
     this.pdf.splice(0);
     this.other.splice(0);
 
-    this.http.get('https://jmhalire-api.herokuapp.com/files', this.httpOptions()).subscribe((res: any) => {
+    this.http.get('https://api-multimedia-production-efad.up.railway.app/files', this.httpOptions()).subscribe((res: any) => {
       let files: File[] = res.archive;
       files.map((file, i) => {
         let type = file.type;
@@ -70,30 +70,30 @@ export class FilesService {
   }
 
   public get_img() {
-    return this.http.get('http://jmhalire-api.herokuapp.com/image', this.httpOptions());
+    return this.http.get('https://api-multimedia-production-efad.up.railway.app/image', this.httpOptions());
   }
 
   public get_aud() {
-    return this.http.get('https://jmhalire-api.herokuapp.com/audio', this.httpOptions());
+    return this.http.get('https://api-multimedia-production-efad.up.railway.app/audio', this.httpOptions());
   }
 
   public get_vid() {
-    return this.http.get('https://jmhalire-api.herokuapp.com/video', this.httpOptions());
+    return this.http.get('https://api-multimedia-production-efad.up.railway.app/video', this.httpOptions());
   }
 
   public get_pdf() {
-    return this.http.get<any>('https://jmhalire-api.herokuapp.com/pdf', this.httpOptions());
+    return this.http.get<any>('https://api-multimedia-production-efad.up.railway.app/pdf', this.httpOptions());
   }
 
   public get_other() {
-    return this.http.get<any>('https://jmhalire-api.herokuapp.com/other', this.httpOptions());
+    return this.http.get<any>('https://api-multimedia-production-efad.up.railway.app/other', this.httpOptions());
   }
 
   /**
    * UploadFile
    */
   public UploadFile(file: FormData): Observable<any> {
-    return this.http.post('https://jmhalire-api.herokuapp.com/upload', file, {
+    return this.http.post('https://api-multimedia-production-efad.up.railway.app/upload', file, {
       headers: new HttpHeaders({ 'Authorization': `Bearer ${this.authService.getToken()}` }),
       reportProgress: true,
       observe: 'events'
@@ -104,7 +104,7 @@ export class FilesService {
      * viewFile
      */
   public viewFile(id) {
-    return this.http.get<any>(`https://jmhalire-api.herokuapp.com/file/${id}`, this.httpOptions())
+    return this.http.get<any>(`https://api-multimedia-production-efad.up.railway.app/file/${id}`, this.httpOptions())
       .pipe(catchError(this.errorMgmt));
   }
 
@@ -126,7 +126,7 @@ export class FilesService {
    * editFile
    */
   public EditFile(file) {
-    return this.http.post<any>('https://jmhalire-api.herokuapp.com/edit', file, this.httpOptions());
+    return this.http.post<any>('https://api-multimedia-production-efad.up.railway.app/edit', file, this.httpOptions());
   }
 
   /**
@@ -134,7 +134,7 @@ export class FilesService {
    */
   public delete(id, id_bucket) {
     const ids_file = { id, id_bucket }
-    return this.http.post<any>('https://jmhalire-api.herokuapp.com/delete', ids_file, this.httpOptions())
+    return this.http.post<any>('https://api-multimedia-production-efad.up.railway.app/delete', ids_file, this.httpOptions())
   }
 
   /**
