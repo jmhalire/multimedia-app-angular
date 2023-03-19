@@ -5,7 +5,6 @@ import { listFileAnimation } from "../../../animations";
 
 //interfaces
 import { File } from "../../../interface/response";
-import { noUndefined } from '@angular/compiler/src/util';
 
 
 @Component({

@@ -10,12 +10,11 @@ export class ApiService {
   private URI_API : string;
 
   constructor(private http : HttpClient) {
-    
-   }
+    this.apiKey  = token_api_weather;  
+  }
 
 
   public getWeather(cityName: string){
-    this.apiKey  = token_api_weather;
     this.URI_API = `http://api.openweathermap.org/data/2.5/weather?appid=${this.apiKey}&units=metric&q=`;
     return this.http.get(`${this.URI_API}${cityName}`);
   }

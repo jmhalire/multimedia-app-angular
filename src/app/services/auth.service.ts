@@ -7,24 +7,25 @@ import { userlogin, user } from "../interface/response";
 })
 export class AuthService {
 
-
+  private url : string;
   constructor(private http: HttpClient) {
+    this.url = "https://api-multimedia-production-efad.up.railway.app"
   }
 
   public signin(user:any){
-    return this.http.post<userlogin>('https://api-multimedia-production-efad.up.railway.app/signin',user);
+    return this.http.post<userlogin>(`${this.url}/signin`,user);
   }
 
   public signup(newuser:any){
-    return this.http.post<userlogin>('https://api-multimedia-production-efad.up.railway.app/signup',newuser);
+    return this.http.post<userlogin>(`${this.url}/signup`,newuser);
   }
 
   public dateUser(){
-    return this.http.get('https://api-multimedia-production-efad.up.railway.app/user/date', this.httpOptions());
+    return this.http.get(`${this.url}/user/date`, this.httpOptions());
   }
 
   public updateUser(dateUser:user){
-    return this.http.post<any>('https://api-multimedia-production-efad.up.railway.app/user/update',dateUser, this.httpOptions());
+    return this.http.post<any>(`${this.url}/user/update`,dateUser, this.httpOptions());
   }
 
   public loggedIn(){

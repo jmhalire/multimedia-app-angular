@@ -16,6 +16,7 @@ export class FilesService {
   private audio: File[];
   private pdf: File[];
   private other: File[];
+  private url: string;
 
   constructor(private http: HttpClient, private authService: AuthService) {
     this.videos = [];
@@ -23,7 +24,7 @@ export class FilesService {
     this.audio = [];
     this.pdf = [];
     this.other = [];
-    
+    this.url = "https://api-multimedia-production-efad.up.railway.app";
   }
 
   /**
@@ -36,7 +37,7 @@ export class FilesService {
     this.pdf.splice(0);
     this.other.splice(0);
 
-    this.http.get('https://api-multimedia-production-efad.up.railway.app/files', this.httpOptions()).subscribe((res: any) => {
+    this.http.get(`${this.url}/files`, this.httpOptions()).subscribe((res: any) => {
       let files: File[] = res.archive;
       files.map((file, i) => {
         let type = file.type;
@@ -70,30 +71,30 @@ export class FilesService {
   }
 
   public get_img() {
-    return this.http.get('https://api-multimedia-production-efad.up.railway.app/image', this.httpOptions());
+    return this.http.get(`${this.url}/image`, this.httpOptions());
   }
 
   public get_aud() {
-    return this.http.get('https://api-multimedia-production-efad.up.railway.app/audio', this.httpOptions());
+    return this.http.get(`${this.url}/audio`, this.httpOptions());
   }
 
   public get_vid() {
-    return this.http.get('https://api-multimedia-production-efad.up.railway.app/video', this.httpOptions());
+    return this.http.get(`${this.url}/video`, this.httpOptions());
   }
 
   public get_pdf() {
-    return this.http.get<any>('https://api-multimedia-production-efad.up.railway.app/pdf', this.httpOptions());
+    return this.http.get<any>(`${this.url}/pdf`, this.httpOptions());
   }
 
   public get_other() {
-    return this.http.get<any>('https://api-multimedia-production-efad.up.railway.app/other', this.httpOptions());
+    return this.http.get<any>(`${this.url}/other`, this.httpOptions());
   }
 
   /**
    * UploadFile
    */
   public UploadFile(file: FormData): Observable<any> {
-    return this.http.post('https://api-multimedia-production-efad.up.railway.app/upload', file, {
+    return this.http.post(`${this.url}/upload`, file, {
       headers: new HttpHeaders({ 'Authorization': `Bearer ${this.authService.getToken()}` }),
       reportProgress: true,
       observe: 'events'
@@ -103,8 +104,8 @@ export class FilesService {
   /**
      * viewFile
      */
-  public viewFile(id) {
-    return this.http.get<any>(`https://api-multimedia-production-efad.up.railway.app/file/${id}`, this.httpOptions())
+  public viewFile(id: any) {
+    return this.http.get<any>(`${this.url}/file/${id}`, this.httpOptions())
       .pipe(catchError(this.errorMgmt));
   }
 
@@ -126,7 +127,7 @@ export class FilesService {
    * editFile
    */
   public EditFile(file) {
-    return this.http.post<any>('https://api-multimedia-production-efad.up.railway.app/edit', file, this.httpOptions());
+    return this.http.post<any>(`${this.url}/edit`, file, this.httpOptions());
   }
 
   /**
@@ -134,7 +135,7 @@ export class FilesService {
    */
   public delete(id, id_bucket) {
     const ids_file = { id, id_bucket }
-    return this.http.post<any>('https://api-multimedia-production-efad.up.railway.app/delete', ids_file, this.httpOptions())
+    return this.http.post<any>(`${this.url}/delete`, ids_file, this.httpOptions())
   }
 
   /**
