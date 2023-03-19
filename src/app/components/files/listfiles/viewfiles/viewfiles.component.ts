@@ -2,6 +2,7 @@ import { Component, OnInit,Input, EventEmitter, Output, Sanitizer, ɵSafeResourc
 import { FilesService } from "../../../../services/files.service";
 import { DomSanitizer } from '@angular/platform-browser';
 import { File } from "../../../../interface/response";
+import { apiURL } from "../../../../tokens";
 
 @Component({
   selector: 'app-viewfiles',
@@ -23,7 +24,7 @@ export class ViewfilesComponent implements OnInit{
   }
   ngOnInit(): void {
     this.type = this.onefile.type;
-    this.src = this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:8080/'+this.src);
+    this.src = this.sanitizer.bypassSecurityTrustResourceUrl(apiURL + "/" + this.src);
 
   }
   public closeViewfile(){

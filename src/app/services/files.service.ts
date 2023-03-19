@@ -4,6 +4,7 @@ import { AuthService } from "./auth.service";
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { File } from "../interface/response";
+import { apiURL } from "../tokens";
 
 
 @Injectable({
@@ -16,7 +17,6 @@ export class FilesService {
   private audio: File[];
   private pdf: File[];
   private other: File[];
-  private url: string;
 
   constructor(private http: HttpClient, private authService: AuthService) {
     this.videos = [];
@@ -24,7 +24,6 @@ export class FilesService {
     this.audio = [];
     this.pdf = [];
     this.other = [];
-    this.url = "https://api-multimedia-production-efad.up.railway.app";
   }
 
   /**
@@ -37,7 +36,7 @@ export class FilesService {
     this.pdf.splice(0);
     this.other.splice(0);
 
-    this.http.get(`${this.url}/files`, this.httpOptions()).subscribe((res: any) => {
+    this.http.get(`${apiURL}/files`, this.httpOptions()).subscribe((res: any) => {
       let files: File[] = res.archive;
       files.map((file, i) => {
         let type = file.type;
@@ -71,30 +70,30 @@ export class FilesService {
   }
 
   public get_img() {
-    return this.http.get(`${this.url}/image`, this.httpOptions());
+    return this.http.get(`${apiURL}/image`, this.httpOptions());
   }
 
   public get_aud() {
-    return this.http.get(`${this.url}/audio`, this.httpOptions());
+    return this.http.get(`${apiURL}/audio`, this.httpOptions());
   }
 
   public get_vid() {
-    return this.http.get(`${this.url}/video`, this.httpOptions());
+    return this.http.get(`${apiURL}/video`, this.httpOptions());
   }
 
   public get_pdf() {
-    return this.http.get<any>(`${this.url}/pdf`, this.httpOptions());
+    return this.http.get<any>(`${apiURL}/pdf`, this.httpOptions());
   }
 
   public get_other() {
-    return this.http.get<any>(`${this.url}/other`, this.httpOptions());
+    return this.http.get<any>(`${apiURL}/other`, this.httpOptions());
   }
 
   /**
    * UploadFile
    */
   public UploadFile(file: FormData): Observable<any> {
-    return this.http.post(`${this.url}/upload`, file, {
+    return this.http.post(`${apiURL}/upload`, file, {
       headers: new HttpHeaders({ 'Authorization': `Bearer ${this.authService.getToken()}` }),
       reportProgress: true,
       observe: 'events'
@@ -105,7 +104,7 @@ export class FilesService {
      * viewFile
      */
   public viewFile(id: any) {
-    return this.http.get<any>(`${this.url}/file/${id}`, this.httpOptions())
+    return this.http.get<any>(`${apiURL}/file/${id}`, this.httpOptions())
       .pipe(catchError(this.errorMgmt));
   }
 
@@ -127,7 +126,7 @@ export class FilesService {
    * editFile
    */
   public EditFile(file) {
-    return this.http.post<any>(`${this.url}/edit`, file, this.httpOptions());
+    return this.http.post<any>(`${apiURL}/edit`, file, this.httpOptions());
   }
 
   /**
@@ -135,7 +134,7 @@ export class FilesService {
    */
   public delete(id, id_bucket) {
     const ids_file = { id, id_bucket }
-    return this.http.post<any>(`${this.url}/delete`, ids_file, this.httpOptions())
+    return this.http.post<any>(`${apiURL}/delete`, ids_file, this.httpOptions())
   }
 
   /**
